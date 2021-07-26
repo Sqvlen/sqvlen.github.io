@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(90deg, transparent, white);
+    animation: scrollBarAnimate 1s linear infinite;
+    filter: blur(10px);
+}
+
+@keyframes scrollBarAnimate {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
+}
+
+/*.scrollPath {
+    width: 12px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.progressbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    background: linear-gradient(to top, white, white);
+}
+
+.progressbar::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, white, white);
+    filter: blur(30px);
+}
+
+.progressbar::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, white, white);
+    filter: blur(30px);
+}

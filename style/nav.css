@@ -1,0 +1,150 @@
+body {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    min-height: 977px;
+    flex-direction: column;
+    background-color: black;
+    color:white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    padding: 50px 50px;
+    margin: 50px 0;
+    display: inline-block;
+    position: relative;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.5s;
+    overflow: hidden;
+    letter-spacing: 4px;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, black);
+}
+
+a:hover, h3:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 5px white,
+                0 0 25px white,
+                0 0 50px white,
+                0 0 200px white;
+}
+
+a span {
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width:  100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, white);
+    animation: firstAnimate 2s linear infinite;
+}
+
+@keyframes firstAnimate {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width:  2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, white);
+    animation: secondAnimate 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes secondAnimate {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+a span:nth-child(3) {
+    bottom: 0%;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, white);
+    animation: thirtyAnimate 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes thirtyAnimate {
+    0% {
+        right: -100%;
+    }
+    50%, 100% {
+        right: 100%;
+    }
+}
+
+a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, white);
+    animation: fourtyAnimate 2s linear infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes fourtyAnimate {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
+}
+
+#Menu {
+    color: aquamarine;
+}
+#Menu:hover {
+    background-color: aquamarine;
+    color: black;
+    box-shadow: 0 0 5px aquamarine,
+                0 0 25px aquamarine,
+                0 0 50px aquamarine,
+                0 0 200px aquamarine;
+}
+
+#Menu span:nth-child(1) {
+    background: linear-gradient(90deg, transparent, aquamarine);
+    /*background: linear-gradient(900deg, transparent, blue);*/
+}
+
+#Menu span:nth-child(2) {
+    background: linear-gradient(180deg, transparent, aquamarine);
+    /*background: linear-gradient(180deg, transparent, blue);*/
+}
+
+#Menu span:nth-child(3) {
+    background: linear-gradient(270deg, transparent, aquamarine);
+    /*background: linear-gradient(270deg, transparent, blue);*/
+}
+
+#Menu span:nth-child(4) {
+    background: linear-gradient(360deg, transparent, aquamarine);
+    /*background: linear-gradient(360deg, transparent, blue);*/
+}
