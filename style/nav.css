@@ -1,27 +1,4 @@
-body {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    min-height: 977px;
-    flex-direction: column;
-    background-color: black;
-    color:white;
-}
-
-hr {
-    width: 30%;
-    height: 3px;
-    filter: blur(2px);
-    border-radius: 30px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-a {
+.menu a {
     padding: 50px 50px;
     margin: 50px 0;
     display: inline-block;
@@ -35,7 +12,7 @@ a {
     -webkit-box-reflect: below 1px linear-gradient(transparent, black);
 }
 
-a:hover, h3:hover {
+.menu a:hover, h3:hover {
     background-color: white;
     color: black;
     box-shadow: 0 0 5px white,
@@ -44,12 +21,12 @@ a:hover, h3:hover {
                 0 0 200px white;
 }
 
-a span {
+.menu a span {
     position: absolute;
     display: block;
 }
 
-a span:nth-child(1) {
+.menu a span:nth-child(1) {
     top: 0;
     left: 0;
     width:  100%;
@@ -136,22 +113,22 @@ a span:nth-child(4) {
                 0 0 200px aquamarine;
 }
 
-#Menu span:nth-child(1) {
-    background: linear-gradient(90deg, transparent, aquamarine);
+/*#Menu span:nth-child(1) {
+    background: linear-gradient(90deg, transparent, aquamarine);*/
     /*background: linear-gradient(900deg, transparent, blue);*/
-}
+/*}
 
 #Menu span:nth-child(2) {
-    background: linear-gradient(180deg, transparent, aquamarine);
+    background: linear-gradient(180deg, transparent, aquamarine);*/
     /*background: linear-gradient(180deg, transparent, blue);*/
-}
+/*}
 
 #Menu span:nth-child(3) {
-    background: linear-gradient(270deg, transparent, aquamarine);
+    background: linear-gradient(270deg, transparent, aquamarine);*/
     /*background: linear-gradient(270deg, transparent, blue);*/
-}
+/*}
 
 #Menu span:nth-child(4) {
-    background: linear-gradient(360deg, transparent, aquamarine);
+    background: linear-gradient(360deg, transparent, aquamarine);*/
     /*background: linear-gradient(360deg, transparent, blue);*/
-}
+/*}*/

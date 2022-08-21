@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    min-height: 977px;
+    flex-direction: column;
+    background-color: black;
+    color:white;
+}
+
+hr {
+    width: 30%;
+    height: 3px;
+    filter: blur(2px);
+    border-radius: 30px;
+}
