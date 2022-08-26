@@ -2,6 +2,42 @@ var canvas = document.getElementById("pingpong");
 
 const context = canvas.getContext('2d');
 
+const ball = {
+    x : canvas.width / 2,
+    y : canvas.height / 2,
+    radius : 10,
+    velocityX : 5,
+    velocityY : 5,
+    speed : 7,
+    color : "yellow"
+}
+
+const user = {
+    x : 0,
+    y : (canvas.height - 100) / 2,
+    width : 10,
+    height : 100,
+    score : 0,
+    color : "yellow"
+}
+
+const com = {
+    x : canvas.width - 10,
+    y : (canvas.height - 100) / 2,
+    width : 10,
+    height : 100,
+    score : 0,
+    color : "yellow"
+}
+
+const net = {
+    x : (canvas.width - 2) / 2,
+    y : 0,
+    height : 10,
+    width : 2,
+    color : "yellow"
+}
+
 function DrawRect(x, y, w, h, color) {
     context.fillStyle = color;
     context.fillRect(x, y, w, h);
@@ -113,39 +149,3 @@ function Game() {
 let framePerSecond = 50;
 
 let loop = setInterval(game, 1000 / framePerSecond);
-
-const ball = {
-    x : canvas.width / 2,
-    y : canvas.height / 2,
-    radius : 10,
-    velocityX : 5,
-    velocityY : 5,
-    speed : 7,
-    color : "yellow"
-}
-
-const user = {
-    x : 0,
-    y : (canvas.height - 100) / 2,
-    width : 10,
-    height : 100,
-    score : 0,
-    color : "yellow"
-}
-
-const com = {
-    x : canvas.width - 10,
-    y : (canvas.height - 100) / 2,
-    width : 10,
-    height : 100,
-    score : 0,
-    color : "yellow"
-}
-
-const net = {
-    x : (canvas.width - 2) / 2,
-    y : 0,
-    height : 10,
-    width : 2,
-    color : "yellow"
-}
