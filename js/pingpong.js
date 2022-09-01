@@ -2,41 +2,9 @@ var canvas = document.getElementById("pingpong");
 
 const context = canvas.getContext('2d');
 
-const ball = {
-    x : canvas.width / 2,
-    y : canvas.height / 2,
-    radius : 10,
-    velocityX : 5,
-    velocityY : 5,
-    speed : 7,
-    color : "yellow"
-}
-
-const user = {
-    x : 0,
-    y : (canvas.height - 100) / 2,
-    width : 10,
-    height : 100,
-    score : 0,
-    color : "yellow"
-}
-
-const com = {
-    x : canvas.width - 10,
-    y : (canvas.height - 100) / 2,
-    width : 10,
-    height : 100,
-    score : 0,
-    color : "yellow"
-}
-
-const net = {
-    x : (canvas.width - 2) / 2,
-    y : 0,
-    height : 10,
-    width : 2,
-    color : "yellow"
-}
+//
+//// Drawing functions
+//
 
 function DrawRect(x, y, w, h, color) {
     context.fillStyle = color;
@@ -52,23 +20,8 @@ function DrawArc(x, y, r, color) {
     context.fill();
 }
 
-canvas.addEventListener("mousemove", GetMousePos);
-
-function GetMousePos(evt) {
-    let rect = canvas.getBoundingClientRect();
-    
-    user.y = evt.clientY - rect.top - user.height/2;
-}
-
-function ResetBall(){
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
-    ball.velocityX = -ball.velocityX;
-    ball.speed = 7;
-}
-
 function DrawNet() {
-    for(let i = 0; i <= canvas.height; i += 15) {
+    for (let i = 0; i <= canvas.height; i += 15) {
         DrawRect(net.x, net.y + i, net.width, net.height, net.color);
     }
 }
@@ -77,6 +30,95 @@ function DrawText(text, x, y) {
     context.fillStyle = "#FFF";
     context.font = "75px fantasy";
     context.fillText(text, x, y);
+}
+
+//
+//// Drawing functions
+//
+
+//
+//// Render
+//
+
+let rectX = 0;
+
+function Render() {
+    DrawRect(0, 0, canvas.width, canvas.height, "black");
+
+    DrawText(user.score, canvas.width / 4, canvas.height / 5);
+    DrawText(com.score, 3 * canvas.width / 4, canvas.height / 5);
+    
+    DrawNet();
+
+    DrawRect(user.x, user.y, user.width, user.height, user.color);
+    DrawRect(com.x, com.y, com.width, com.height, com.color);
+    
+    DrawArc(ball.x, ball.y, ball.radius, ball.color);
+}
+
+setInterval(Render, 1000);
+
+//
+//// Render
+//
+
+//
+//// Objects and them characteristics
+//
+
+const ball = {
+    x : canvas.width / 2,
+    y : canvas.height / 2,
+    radius : 10,
+    velocityX : 5,
+    velocityY : 5,
+    speed : 5,
+    color : "yellow"
+}
+
+const user = {
+    x : 10,
+    y : (canvas.height - 100) / 2,
+    width : 10,
+    height : 100,
+    score : 0,
+    color : "yellow"
+}
+
+const com = {
+    x : canvas.width - 20,
+    y : (canvas.height - 100) / 2,
+    width : 10,
+    height : 100,
+    score : 0,
+    color : "yellow"
+}
+
+const net = {
+    x : (canvas.width - 2) / 2,
+    y : 0,
+    height : 5,
+    width : 2,
+    color : "yellow"
+}
+
+//
+//// Objects and them characteristics
+//
+
+canvas.addEventListener("mousemove", GetMousePos);
+
+function GetMousePos(evt) {
+    let rect = canvas.getBoundingClientRect();
+    
+    user.y = evt.clientY - rect.top - user.height / 2;
+}
+
+function ResetBall() {
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    ball.velocityX = -ball.velocityX;
+    ball.speed = 7;
 }
 
 function Collision(b, a) {
@@ -94,11 +136,11 @@ function Collision(b, a) {
 }
 
 function Update() {
-    if(ball.x - ball.radius < 0 ) {
+    if (ball.x - ball.radius < 0 ) {
         com.score++;
         ResetBall();
     }
-    else if(ball.x + ball.radius > canvas.width) {
+    else if (ball.x + ball.radius > canvas.width) {
         user.score++;
         ResetBall();
     }
@@ -106,16 +148,15 @@ function Update() {
     ball.x += ball.velocityX;
     ball.y += ball.velocityY;
     
-    //UI
     com.y += ((ball.y - (com.y + com.height / 2))) * 0.1;
     
-    if(ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
+    if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
         ball.velocityY = -ball.velocityY;
     }
     
     let player = (ball.x + ball.radius < canvas.width / 2) ? user : com;
     
-    if(Collision(ball,player)) {
+    if (Collision(ball, player)) {
         let collidePoint = (ball.y - (player.y + player.height / 2));
         collidePoint = collidePoint / (player.height / 2);
         
@@ -129,19 +170,6 @@ function Update() {
     }
 }
 
-function Render() {
-    DrawRect(0, 0, canvas.width, canvas.height, "#000");
-
-    DrawText(user.score,canvas.width/4,canvas.height/5);
-    DrawText(com.score,3*canvas.width/4,canvas.height/5);
-    
-    DrawNet();
-
-    DrawRect(user.x, user.y, user.width, user.height, user.color);
-    DrawRect(com.x, com.y, com.width, com.height, com.color);
-    
-    DrawArc(ball.x, ball.y, ball.radius, ball.color);
-}
 function Game() {
     Update();
     Render();
