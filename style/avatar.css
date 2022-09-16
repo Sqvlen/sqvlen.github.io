@@ -5,4 +5,5 @@ img {
     display: flex;
     align-items: center;
     border-radius: 600px;
+    margin-bottom: 20px;
 }

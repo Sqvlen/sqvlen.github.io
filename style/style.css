@@ -19,6 +19,7 @@ hr {
     height: 3px;
     filter: blur(2px);
     border-radius: 30px;
+    margin-bottom: 20px;
 }
 
 .border {

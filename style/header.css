@@ -8,6 +8,7 @@ h3 {
     position: relative;
     transition: 0.5s;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 h3 span {
